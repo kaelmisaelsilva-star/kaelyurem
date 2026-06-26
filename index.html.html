@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Colegio La Primera</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    overflow: hidden;
+    background: linear-gradient(135deg, #0b6623, #1e88e5, #b0b0b0);
+}
+
+/* ===== BIENVENIDA ===== */
+#splash {
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    color: white;
+    z-index: 10;
+    text-align: center;
+}
+
+#splash::before {
+    content: "";
+    position: absolute;
+    width: 120%;
+    height: 120%;
+    background-image: url("GIF/GIF1.gif");
+    background-size: cover;
+    background-position: center;
+    z-index: -1;
+    animation: moverImagen 12s infinite alternate ease-in-out;
+    filter: brightness(0.6);
+}
+
+@keyframes moverImagen {
+    0% { transform: scale(1) translate(0px,0px); }
+    100% { transform: scale(1.2) translate(-50px,-30px); }
+}
+
+/* ANIMACIÓN BIENVENIDA */
+#splash h1, #splash h2 {
+    animation: zoom 2s ease, flotar 3s infinite ease-in-out;
+}
+
+@keyframes zoom {
+    from { transform: scale(0.5); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
+
+@keyframes flotar {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-15px); }
+    100% { transform: translateY(0px); }
+}
+
+/* ===== PÁGINAS ===== */
+.page {
+    display: none;
+    min-height: 100vh;
+    padding: 20px;
+    background: linear-gradient(135deg, #9da4e0, #9fa7f0);
+}
+
+.active {
+    display: block;
+}
+
+/* ===== HEADER ===== */
+header {
+    background: linear-gradient(90deg, #0b6623, #1e88e5);
+    color: rgb(0, 0, 0);
+    padding: 20px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    box-shadow: 0 6px 15px rgba(0,0,0,0.25);
+}
+
+header img {
+    width: 85px;
+    height: 85px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid white;
+}
+
+/* ===== BOTONES ===== */
+.content {
+    margin-top: 30px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.card {
+    background: linear-gradient(135deg, #0b6623, #1e88e5);
+    padding: 15px;
+    border-radius: 15px;
+    text-align: center;
+    cursor: pointer;
+    transition: 0.3s;
+    color: white;
+    box-shadow: 0 6px 15px rgba(0,0,0,0.25);
+    border: 2px solid #b0b0b0;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+/* ===== IMÁGENES PRINCIPALES ===== */
+.extra-images {
+    margin-top: 30px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+}
+
+.extra-images img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 12px;
+    transition: 0.3s;
+    border: 3px solid #1e88e5;
+}
+
+.extra-images img:hover {
+    transform: scale(1.05);
+}
+
+/* ===== GALERÍA ===== */
+.gallery-large {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 15px;
+    margin-top: 15px;
+}
+
+.gallery-large img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 12px;
+    transition: 0.3s;
+    border: 2px solid #0b6623;
+}
+
+.gallery-large img:hover {
+    transform: scale(1.05);
+    border-color: #1e88e5;
+}
+
+/* ===== FORMULARIO SOLO EN SECCIÓN ===== */
+.box {
+    background: linear-gradient(135deg, #0b6623, #1e88e5);
+    padding: 20px;
+    border-radius: 15px;
+    margin-top: 15px;
+    box-shadow: 0 6px 15px rgba(0,0,0,0.25);
+    color: white;
+}
+
+input, textarea {
+    width: 100%;
+    margin-top: 10px;
+    padding: 10px;
+    border-radius: 8px;
+    border: none;
+}
+
+button {
+    margin-top: 10px;
+    padding: 10px;
+    border: none;
+    background: #0b6623;
+    color: white;
+    font-weight: bold;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover {
+    background: #1e88e5;
+}
+
+.back {
+    margin-top: 20px;
+    padding: 10px;
+    background: #1e88e5;
+    color: white;
+    border: none;
+    border-radius: 10px;
+}
+</style>
+</head>
+
+<body>
+
+<!-- BIENVENIDA -->
+<div id="splash">
+    <h1>BIENVENIDO</h1>
+    <h1>A MI UNIDAD EDUCATIVA LA PRIMERA</h1>
+    <h1>TE DESEA YUREM Y KAEL</h1>
+</div>
+
+<!-- PÁGINA PRINCIPAL -->
+<div id="home" class="page">
+
+<header>
+    <img src="png/LOGO U.E.jpg">
+    <div>
+        <h1>UNIDAD EDUCATIVA LA PRIMERA</h1>
+        <p>FE Y ALEGRÍA</p>
+    </div>
+</header>
+
+<div class="content">
+    <div class="card" onclick="openPage('sec1')">ACERCA DEL COLEGIO</div>
+    <div class="card" onclick="openPage('sec2')">ACTIVIDADES</div>
+    <div class="card" onclick="openPage('sec3')">INFORMACIÓN</div>
+    <div class="card" onclick="openPage('sec4')">FORMULARIO</div>
+</div>
+
+<div class="extra-images">
+    <img src="png/P1.png">
+    <img src="png/P2.png">
+    <img src="png/P3.png">
+    <img src="png/P4.png">
+</div>
+
+</div>
+
+<!-- SECCIÓN 1 -->
+<div id="sec1" class="page">
+    <h2>Acerca del Colegio</h2>
+
+    <img class="big-image" src="png/P1.png">
+
+    <div class="info-box">
+        <h3>Misión</h3>
+        <p>La misión de un colegio es el propósito que tiene en el presente. Su objetivo es brindar una educación de calidad que permita a los estudiantes desarrollar conocimientos, habilidades y valores que les ayuden en su vida personal y académica. También busca formar personas responsables, respetuosas y capaces de contribuir positivamente a la sociedad.
+
+Además de enseñar materias, un colegio tiene la misión de impulsar el pensamiento crítico, la creatividad y el trabajo en equipo, creando un ambiente donde cada estudiante pueda aprender, crecer y prepararse para enfrentar los retos del futuro..</p>
+    </div>
+
+    <div class="info-box">
+        <h3>Visión</h3>
+        <p>La visión de un colegio representa la meta que desea alcanzar en el futuro. Busca convertirse en una institución reconocida por su excelencia educativa, por formar estudiantes con valores y por promover el desarrollo integral de cada persona.
+
+También proyecta una educación moderna e innovadora, capaz de adaptarse a los cambios del mundo y de preparar a los estudiantes para ser ciudadanos comprometidos, líderes y capaces de construir un mejor futuro.</p>
+    </div>
+
+    <button class="back" onclick="goHome()">Volver</button>
+</div>
+
+<!-- SECCIÓN 2 -->
+<div id="sec2" class="page">
+    <h2>Actividades</h2>
+    <div class="gallery-large">
+        <img src="jpg/K1.jpg"><img src="jpg/K2.jpg"><img src="jpg/K3.jpg"><img src="jpg/K4.jpg">
+        <img src="jpg/K5.jpg"><img src="jpg/K6.jpg"><img src="jpg/K7.jpg"><img src="jpg/K8.jpg">
+    </div>
+    <button class="back" onclick="goHome()">Volver</button>
+</div>
+
+<!-- SECCIÓN 3 -->
+<div id="sec3" class="page">
+    <h2>Información</h2>
+    <div class="gallery-large">
+        <img src="png/y1.png"><img src="png/y2.png"><img src="png/y3.png"><img src="png/y4.png">
+        <img src="jpg/y6.jpg"><img src="jpg/y7.jpg"><img src="jpg/y8.jpg"><img src="jpg/y9.jpg">
+    </div>
+    <button class="back" onclick="goHome()">Volver</button>
+</div>
+
+<!-- FORMULARIO SOLO AQUÍ -->
+<div id="sec4" class="page">
+    <h2>Formulario</h2>
+
+    <div class="box">
+        <input type="text" placeholder="Estudiante">
+        <input type="text" placeholder="Profesor">
+        <textarea placeholder="Consulta"></textarea>
+        <button>Enviar</button>
+    </div>
+
+    <button class="back" onclick="goHome()">Volver</button>
+</div>
+
+<script>
+setTimeout(() => {
+    document.getElementById("splash").style.display = "none";
+    document.getElementById("home").classList.add("active");
+    document.body.style.overflow = "auto";
+}, 3000);
+
+function openPage(id) {
+    document.querySelectorAll(".page").forEach(p => p.classList.remove("active"));
+    document.getElementById(id).classList.add("active");
+}
+
+function goHome() {
+    document.querySelectorAll(".page").forEach(p => p.classList.remove("active"));
+    document.getElementById("home").classList.add("active");
+}
+</script>
+
+</body>
+</html>
